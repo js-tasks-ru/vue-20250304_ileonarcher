@@ -1,9 +1,32 @@
-import { defineComponent } from 'vue'
+import { defineComponent, ref, watch } from 'vue'
 
 export default defineComponent({
   name: 'CounterApp',
 
-  setup() {},
+  setup() {
+    let number = ref(0)
+
+    let minusDisable = ref(true);
+
+    let plusDisable = ref(false);
+
+    watch(number, (newNumber) => {
+      if (newNumber <= 0) {
+        minusDisable.value = true;
+      } else if (newNumber >= 5) {
+        plusDisable.value = true;
+      } else {
+        minusDisable.value = false;
+        plusDisable.value = false;
+      }
+    })
+
+    return {
+      number,
+      minusDisable,
+      plusDisable
+    }
+  },
 
   template: `
     <div class="counter">
@@ -11,15 +34,18 @@ export default defineComponent({
         class="button button--secondary"
         type="button"
         aria-label="Decrement"
-        disabled
+        :disabled="minusDisable"
+        @click="number--"
       >➖</button>
 
-      <span class="count" data-testid="count">0</span>
+      <span class="count" data-testid="count">{{number}}</span>
 
       <button
         class="button button--secondary"
         type="button"
         aria-label="Increment"
+        :disabled="plusDisable"
+        @click="number++"
       >➕</button>
     </div>
   `,
