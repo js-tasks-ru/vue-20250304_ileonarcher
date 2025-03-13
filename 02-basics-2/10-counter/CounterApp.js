@@ -38,7 +38,7 @@ export default defineComponent({
         @click="number--"
       >➖</button>
 
-      <span class="count" data-testid="count">{{number}}</span>
+      <span class="count" data-testid="count">{{ number }}</span>
 
       <button
         class="button button--secondary"
