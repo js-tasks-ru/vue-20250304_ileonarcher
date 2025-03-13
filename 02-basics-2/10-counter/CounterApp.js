@@ -1,4 +1,4 @@
-import { defineComponent, ref, watch } from 'vue'
+import { defineComponent, ref, computed } from 'vue'
 
 export default defineComponent({
   name: 'CounterApp',
@@ -6,20 +6,19 @@ export default defineComponent({
   setup() {
     let number = ref(0)
 
-    let minusDisable = ref(true);
-
-    let plusDisable = ref(false);
-
-    watch(number, (newNumber) => {
-      if (newNumber <= 0) {
-        minusDisable.value = true;
-      } else if (newNumber >= 5) {
-        plusDisable.value = true;
+    let minusDisable = computed(() => {
+      if (number.value <= 0) {
+        return true;
       } else {
-        minusDisable.value = false;
-        plusDisable.value = false;
-      }
-    })
+        return false;
+    }});
+
+    let plusDisable = computed(() => {
+      if (number.value >= 5) {
+        return true;
+      } else {
+        return false;
+    }});
 
     return {
       number,
