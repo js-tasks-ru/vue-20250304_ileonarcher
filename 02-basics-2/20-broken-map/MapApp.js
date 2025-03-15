@@ -5,10 +5,10 @@ export default defineComponent({
 
   setup() {
     // Реактивные переменные для хранения координат метки
-    let x = ref(0)
-    let y = ref(0)
+    const x = ref(0)
+    const y = ref(0)
 
-    let pinStyle = computed(()=> {
+    const pinStyle = computed(()=> {
       return {
       left: `${x.value}px`,
       top: `${y.value}px`,

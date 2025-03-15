@@ -33,21 +33,32 @@ export default defineComponent({
   name: 'MarkedEmailsApp',
 
   setup() {
-    let inputValue = ref('')
-
-    let markArray = computed(() => {
-      if (inputValue.value !== '') {
-        return emails.filter(val => {
-          return val.includes(inputValue.value)
-        })
+    const markUpgradedEmailList = emails.map(value => {
+      let result = {
+        value,
+        isMarked: false,
       }
-        return []
+      return result
     })
+
+    const markerStastusEmails = computed(() => {
+      return markUpgradedEmailList.map(item => {
+        if (inputValue.value === '') {
+          item.isMarked = false
+          return item
+        } else {
+          item.isMarked = item.value.includes(inputValue.value)
+          return item
+        }
+      })
+    })
+
+    const inputValue = ref('')
 
     return {
       inputValue,
       emails,
-      markArray,
+      markerStastusEmails,
     }
   },
 
@@ -57,8 +68,8 @@ export default defineComponent({
         <input type="search" aria-label="Search" v-model='inputValue'/>
       </div>
       <ul aria-label="Emails">
-        <li v-for="email in emails" :class="{['marked']: markArray.includes(email)}">
-          {{ email }}
+        <li v-for="email in markerStastusEmails" :class="{['marked']: email.isMarked}">
+          {{ email.value }}
         </li>
       </ul>
     </div>

@@ -10,7 +10,7 @@ export default defineComponent({
       operation: 'sum',
     })
 
-    let result = computed(() => {
+    const result = computed(() => {
       switch (expression.value.operation) {
         case 'sum':
           return expression.value.firstOperand + expression.value.secondOperand;
@@ -35,11 +35,11 @@ export default defineComponent({
     <div class="calculator">
       <input type="number" aria-label="First operand" v-model='expression.firstOperand'/>
 
-      <div class="calculator__operators" @input="(event) => expression.operation = event.target.value">
-        <label><input type="radio" name="operator" value="sum"/>➕</label>
-        <label><input type="radio" name="operator" value="subtract"/>➖</label>
-        <label><input type="radio" name="operator" value="multiply"/>✖</label>
-        <label><input type="radio" name="operator" value="divide"/>➗</label>
+      <div class="calculator__operators">
+        <label><input type="radio" name="operator" value="sum" v-model="expression.operation"/>➕</label>
+        <label><input type="radio" name="operator" value="subtract" v-model="expression.operation"/>➖</label>
+        <label><input type="radio" name="operator" value="multiply" v-model="expression.operation"/>✖</label>
+        <label><input type="radio" name="operator" value="divide" v-model="expression.operation"/>➗</label>
       </div>
 
       <input type="number" aria-label="Second operand" v-model='expression.secondOperand'/>

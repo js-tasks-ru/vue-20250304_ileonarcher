@@ -7,7 +7,7 @@ export default defineComponent({
   setup() {
     const selectedMeetupId = ref(1)
 
-    let previousDisable = computed(() => {
+    const previousDisable = computed(() => {
       if (selectedMeetupId.value <= 1) {
         return true
       } else {
@@ -15,7 +15,7 @@ export default defineComponent({
       }
     })
 
-    let nextDisable = computed(() => {
+    const nextDisable = computed(() => {
       if (selectedMeetupId.value >= 5) {
         return true
       } else {
@@ -116,9 +116,7 @@ export default defineComponent({
 
       <div class="meetup-selector__cover">
         <div class="meetup-cover">
-          <template v-if="currentMeetup !== null">
-            <h1 class="meetup-cover__title">{{ currentMeetup.title }}</h1>
-          </template>
+            <h1 v-if="currentMeetup !== null" class="meetup-cover__title">{{ currentMeetup.title }}</h1>
         </div>
       </div>
 

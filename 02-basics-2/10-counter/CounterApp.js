@@ -4,26 +4,22 @@ export default defineComponent({
   name: 'CounterApp',
 
   setup() {
-    let number = ref(0)
+    const number = ref(0)
 
-    let minusDisable = computed(() => {
+    const minusDisable = computed(() => {
       if (number.value <= 0) {
-        return true;
+        return true
       } else {
-        return false;
-    }});
+        return false
+      }
+    })
 
-    let plusDisable = computed(() => {
-      if (number.value >= 5) {
-        return true;
-      } else {
-        return false;
-    }});
+    const plusDisable = computed(() => number.value >= 5)
 
     return {
       number,
       minusDisable,
-      plusDisable
+      plusDisable,
     }
   },
 
