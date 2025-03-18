@@ -23,7 +23,7 @@ export default defineComponent({
     <div>
       <h1 class="title">Погода в Средиземье</h1>
 
-      <WeatherList class="weather-list unstyled-list" :weatherData />
+      <WeatherList :weatherData />
 
     </div>
   `,
