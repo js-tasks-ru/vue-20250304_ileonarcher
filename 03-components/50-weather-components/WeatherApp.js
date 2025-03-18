@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import { getWeatherData } from './weather.service.ts'
 import './WeatherApp.css'
-import WeatherList from 'components/WeatherList'
+import WeatherList from './components/WeatherList.js'
 
 export default defineComponent({
   name: 'WeatherApp',
