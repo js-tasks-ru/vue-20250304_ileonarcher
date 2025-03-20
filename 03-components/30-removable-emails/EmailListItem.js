@@ -21,8 +21,8 @@ export default defineComponent({
 
     deleteIndex: {
       type: Function,
-      required: true
-    }
+      required: true,
+    },
   },
 
   emits: ['delete'],

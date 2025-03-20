@@ -16,21 +16,14 @@ export default defineComponent({
   },
 
   setup() {
-    function isNight(city) {
-      return !(city.current.dt > city.current.sunrise && city.current.dt < city.current.sunset)
-    }
-
     return {
-      isNight,
       WeatherCard,
     }
   },
 
   template: `
     <ul class="weather-list unstyled-list">
-      <li v-for="city in weatherData" class='weather-card' :class="{'weather-card--night': isNight(city)}">
-        <WeatherCard :city/>
-      </li>
+        <WeatherCard v-for="city in weatherData" :city/>
     </ul>
   `,
 })

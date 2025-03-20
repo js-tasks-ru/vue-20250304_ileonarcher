@@ -6,13 +6,7 @@ export default defineComponent({
   setup() {
     const number = ref(0)
 
-    const minusDisable = computed(() => {
-      if (number.value <= 0) {
-        return true
-      } else {
-        return false
-      }
-    })
+    const minusDisable = computed(() => number.value <= 0)
 
     const plusDisable = computed(() => number.value >= 5)
 
