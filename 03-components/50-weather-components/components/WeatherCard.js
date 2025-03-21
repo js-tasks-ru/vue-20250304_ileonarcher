@@ -40,7 +40,7 @@ export default defineComponent({
               {{ city.current.dt }}
           </div>
       </div>
-      <WeatherConditions :weatherDescription='city.current.weather.description' :weatherId='city.current.weather.id' :currentTemp='city.current.temp' />
+      <WeatherConditions :weather-description='city.current.weather.description' :weather-id='city.current.weather.id' :currentTemp='city.current.temp' />
       <WeatherDetails :pressure='city.current.pressure' :humidity='city.current.humidity' :clouds='city.current.clouds' :windSpeed='city.current.wind_speed' />
     </li>
     `,

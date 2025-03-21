@@ -15,7 +15,7 @@ export default defineComponent({
     },
   },
 
-  emits: ['removeEmailByIndex'],
+  emits: ['removeEmail'],
 
   template: `
     <ul class="emails-list unstyled-list" aria-label="Emails">
@@ -24,7 +24,7 @@ export default defineComponent({
         :key="email"
         :email="email"
         :marked="isMarked"
-        @delete="$emit('removeEmailByIndex', index)"
+        @delete="$emit('removeEmail', index)"
       />
     </ul>
   `,

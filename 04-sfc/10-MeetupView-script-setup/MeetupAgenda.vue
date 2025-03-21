@@ -1,5 +1,4 @@
 <script setup>
-import {  } from 'vue'
 import MeetupAgendaItem from './MeetupAgendaItem.vue'
 
 const props = defineProps({

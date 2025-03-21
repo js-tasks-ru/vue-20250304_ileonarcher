@@ -1,11 +1,9 @@
 <script setup>
-import {  } from 'vue'
-
-  const props = defineProps({
-    description: {
-      type: String,
-    },
-  })
+const props = defineProps({
+  description: {
+    type: String,
+  },
+})
 </script>
 
 <template>

@@ -12,9 +12,9 @@
   height: 100%;
 }
 
-.stretch-container :deep(img),
-.stretch-container :deep(video),
-.stretch-container :deep(picture) {
+:slotted(img),
+:slotted(video),
+:slotted(picture) {
   object-fit: scale-down;
 }
 </style>
